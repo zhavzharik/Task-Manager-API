@@ -14,13 +14,13 @@ namespace MyTasks.Domain
 
     public enum MyTaskType
     {
-        Work = 1,
-        Personal = 2,
+        Work,
+        Personal,
     }
 
     public enum CompletedStatus
     {
-        NotComleted = 0,
-        Done = 1,
+        NotComleted,
+        Done,
     }
 }
