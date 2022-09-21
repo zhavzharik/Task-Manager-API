@@ -19,16 +19,15 @@ namespace MyTasks.Application.MyTasks.Commands.MarkMyTaskCompleted
         public async Task<Unit> Handle(MarkMyTaskCompletedCommand request,
             CancellationToken cancellationToken)
         {
-            var entity =
-                await _dbContext.MyTasks.FirstOrDefaultAsync(mytask =>
-                    mytask.Id == request.Id, cancellationToken);
+            var entity = await _dbContext.MyTasks
+               .FindAsync(new object[] { request.Id }, cancellationToken);
 
             if (entity == null || entity.UserId != request.UserId)
             {
                 throw new NotFoundException(nameof(MyTask), request.Id);
             }
 
-            entity.IsCompleted = CompletedStatus.Done;
+            entity.IsCompleted = request.IsCompleted;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 

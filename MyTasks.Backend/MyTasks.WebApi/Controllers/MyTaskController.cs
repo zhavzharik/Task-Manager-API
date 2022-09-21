@@ -47,11 +47,12 @@ namespace MyTasks.WebApi.Controllers
             return NoContent();
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateStatus([FromBody] MarkMyTaskCompletedDto markMyTaskCompletedDto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateStatus([FromBody] MarkMyTaskCompletedDto markMyTaskCompletedDto, Guid id)
         {
-            var command = _mapper.Map<UpdateMyTaskCommand>(markMyTaskCompletedDto);
+            var command = _mapper.Map<MarkMyTaskCompletedCommand>(markMyTaskCompletedDto);
             command.UserId = UserId;
+            command.Id = id;
             await Mediator.Send(command);
             return NoContent();
         }
