@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BC897E32-51FC-45C3-A584-7D889DA20E5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTasks.Domain", "MyTasks.Domain\MyTasks.Domain.csproj", "{54F95D07-EED7-4758-A97D-EB08F08A3AF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTasks.Domain", "MyTasks.Domain\MyTasks.Domain.csproj", "{54F95D07-EED7-4758-A97D-EB08F08A3AF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTasks.Application", "MyTasks.Application\MyTasks.Application.csproj", "{4287ADEB-4FED-425F-BA9B-FC4A61A89723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTasks.Application", "MyTasks.Application\MyTasks.Application.csproj", "{4287ADEB-4FED-425F-BA9B-FC4A61A89723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTasks.Persistence", "MyTasks.Persistence\MyTasks.Persistence.csproj", "{95207570-9E46-4B32-A54B-1317D72D739B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTasks.Persistence", "MyTasks.Persistence\MyTasks.Persistence.csproj", "{95207570-9E46-4B32-A54B-1317D72D739B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTasks.WebApi", "MyTasks.WebApi\MyTasks.WebApi.csproj", "{562D1185-087F-4558-B112-DE7E74C408DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTasks.WebApi", "MyTasks.WebApi\MyTasks.WebApi.csproj", "{562D1185-087F-4558-B112-DE7E74C408DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

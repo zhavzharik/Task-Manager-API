@@ -18,15 +18,15 @@ namespace MyTasks.Application.MyTasks.Queries.GetMyTaskDescription
         {
             profile.CreateMap<MyTask, MyTaskDescriptionVm>()
                 .ForMember(taskVm => taskVm.Id,
-                    opt => opt.MapFrom(taskVm => taskVm.Id))
+                    opt => opt.MapFrom(mytask => mytask.Id))
                 .ForMember(taskVm => taskVm.Type,
-                    opt => opt.MapFrom(taskVm => taskVm.Type))
+                    opt => opt.MapFrom(mytask => mytask.Type))
                 .ForMember(taskVm => taskVm.Description,
-                    opt => opt.MapFrom(taskVm => taskVm.Description))
+                    opt => opt.MapFrom(mytask => mytask.Description))
                 .ForMember(taskVm => taskVm.CompletedDate,
-                    opt => opt.MapFrom(taskVm => taskVm.CompletedDate))
+                    opt => opt.MapFrom(mytask => mytask.CompletedDate))
                 .ForMember(taskVm => taskVm.IsCompleted,
-                    opt => opt.MapFrom(taskVm => taskVm.IsCompleted));
+                    opt => opt.MapFrom(mytask => mytask.IsCompleted));
         }
     }
 }
