@@ -9,7 +9,7 @@ namespace MyTasks.Domain
         public MyTaskType Type { get; set; }
         public string Description { get; set; }
         public DateTime CompletedDate { get; set; }
-        public CompletedBool IsCompleted { get; set; }
+        public CompletedStatus IsCompleted { get; set; }
     }
 
     public enum MyTaskType
@@ -18,9 +18,9 @@ namespace MyTasks.Domain
         Personal = 2,
     }
 
-    public enum CompletedBool
+    public enum CompletedStatus
     {
-        False = 0,
-        True = 1,
+        NotComleted = 0,
+        Done = 1,
     }
 }
