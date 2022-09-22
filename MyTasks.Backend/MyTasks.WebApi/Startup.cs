@@ -9,7 +9,9 @@ using MyTasks.Application.Interfaces;
 using MyTasks.Persistence;
 using System.Reflection;
 using MyTasks.WebApi.Middleware;
-
+using System;
+using System.IO;
+using Newtonsoft.Json.Converters;
 
 
 namespace MyTasks.WebApi
@@ -30,7 +32,14 @@ namespace MyTasks.WebApi
 
             services.AddApplication();
             services.AddPersistence(Configuration);
-            services.AddControllers();
+            //services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(o =>
+            {
+                o.SerializerSettings.Converters.Add(new StringEnumConverter
+                {
+                    CamelCaseText = true
+                });
+            });
 
             services.AddCors(options =>
             {
@@ -40,6 +49,14 @@ namespace MyTasks.WebApi
                     policy.AllowAnyMethod();
                     policy.AllowAnyOrigin();
                 });
+            });
+
+            //services.AddSwaggerGen();
+            services.AddSwaggerGen(config =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                config.IncludeXmlComments(xmlPath);
             });
         }
 
@@ -51,6 +68,12 @@ namespace MyTasks.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(config =>
+            {
+                config.RoutePrefix = string.Empty;
+                config.SwaggerEndpoint("swagger/v1/swagger.json", "Task Manager API");
+            });
             app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();

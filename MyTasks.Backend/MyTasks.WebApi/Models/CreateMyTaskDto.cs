@@ -3,13 +3,17 @@ using MyTasks.Application.Common.Mappings;
 using MyTasks.Application.MyTasks.Commands.CreateMyTask;
 using MyTasks.Domain;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyTasks.WebApi.Models
 {
     public class CreateMyTaskDto : IMapWith<CreateMyTaskCommand>
     {
+        [Required]
         public MyTaskType Type { get; set; }
+        [Required]
         public string Description { get; set; }
+        [Required]
         public DateTime CompletedDate { get; set; }
 
         public void Mapping(Profile profile)
