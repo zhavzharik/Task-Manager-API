@@ -8,6 +8,7 @@ using MyTasks.Application;
 using MyTasks.Application.Interfaces;
 using MyTasks.Persistence;
 using System.Reflection;
+using MyTasks.WebApi.Middleware;
 
 
 
@@ -50,6 +51,7 @@ namespace MyTasks.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCustomExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
